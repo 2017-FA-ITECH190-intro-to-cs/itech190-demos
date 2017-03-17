@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Round Numbers</title>
+</head>
+
+<body>
+	<h2>Number Rounder</h2>
+	<p>
+		Enter a number: <input type="text" id="number" size="12" value="3.14159265358979">
+	</p>
+	<input type="button" value="Round It" onclick="
+		number=parseFloat(document.getElementById('number').value);
+		rounded=Math.round(number*10)/10;
+		document.getElementById('output').innerHTML=
+			number + ' Rounded to one decimal place is ' + rounded;
+	">
+	<hr>
+	<div id="output"></div>
+</body>
+
+</html>

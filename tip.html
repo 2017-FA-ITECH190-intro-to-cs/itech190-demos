@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html> 
+<meta http-equiv="content-type" content="text/html">
+<head>
+	<title>Tip Calculator</title>
+</head>
+<body>
+	<h2>Tip Calculator</h2>
+	<p>
+		Enter the amount: $<input id="amountBox" size="10" type="text" />
+		<br>
+		Tip Percentage: 15%
+	</p>
+	<input type="button" value="Caluclate Tip"
+	onclick="
+		amount = parseFloat(document.getElementById('amountBox').value);
+		tip = amount * (15/100);
+		document.getElementById('outputDiv').innerHTML=
+		'<p>You should tip $' + tip + '</p>';
+	"/>
+	<hr />
+	<div id="outputDiv"></div>
+</body>
+</html>

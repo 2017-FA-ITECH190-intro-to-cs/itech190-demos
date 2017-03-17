@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Random 1</title>
+
+	<script>
+		function getRandom() {
+			minVal = parseFloat(document.getElementById('minBox').value);
+			maxVal = parseFloat(document.getElementById('maxBox').value);
+			number = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
+			document.getElementById('output').innerHTML =
+				'Your number is: ' + number;
+		}
+	</script>
+</head>
+
+<body>
+	<h2>Random Number</h2>
+	<p>
+		Generate a random number between
+		<input type="text" id="minBox" size="3" value="0"> and
+		<input type="text" id="maxBox" size="3" value="9">
+	</p>
+	<input type="button" value="Get a Random Number" onclick="getRandom();">
+	<hr>
+	<div id="output"></div>
+</body>
+
+</html>

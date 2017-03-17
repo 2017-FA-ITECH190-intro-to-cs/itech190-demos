@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Roll a Die</title>
+    <script type="text/javascript">
+        function rollDie() {
+            roll = Math.floor(Math.random() * 6) + 1;
+            die = 'images/die_' + roll + '.png';
+            document.getElementById('dieImg').src = die;
+        }
+    </script>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <p>
+            <img id="dieImg" alt="Die Image" src="images/die_1.png">
+        </p>
+        <input type="button" value="Click to Roll" onClick="rollDie();">
+    </div>
+</body>
+
+</html>

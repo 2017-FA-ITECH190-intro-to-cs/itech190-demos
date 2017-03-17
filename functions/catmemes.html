@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cat Memes</title>
+	<script type="text/javascript">
+		function SelectMeme() {
+			memeNum = Math.floor(4 * Math.random());
+			document.getElementById('meme').src =
+				'images/cat_meme_' + memeNum + '.jpg';
+		}
+	</script>
+</head>
+
+<body onload="setInterval('SelectMeme()', 5000);">
+	<div style="text-align: center;">
+		<img id="meme" alt="Cat Meme" src="images/cat_meme_0.jpg" />
+	</div>
+
+</body>
+
+</html>
