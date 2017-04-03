@@ -19,16 +19,16 @@
         Once we have put that last item in place, we have the same problem to solve again, only our list is shorter. Here is an algorithm that captures this process:
     </p>
     <pre><code>
-numberOfItemsInPlace = 0
+    numberOfItemsInPlace = 0
 
-Do the following until the list is sorted:
-    A. cadidate = the first item in the list
-    B. Do the following until you get to the end of the line minus numberOfItemsInPlace:
-        i. If the candidate comes after the next item:
-            a. the candidate and the next person swap places
-        else:
-            b. candidate = the next item
-    C. increment numberOfItemsInPlace
+    Do the following until the list is sorted:
+        A. cadidate = the first item in the list
+        B. Do the following until you get to the end of the line minus numberOfItemsInPlace:
+            i. If the candidate comes after the next item:
+                a. the candidate and the next person swap places
+            else:
+                b. candidate = the next item
+        C. increment numberOfItemsInPlace
 
     </code></pre>
 </body>
