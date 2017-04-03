@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sorting Algorithm 2</title>
+</head>
+<body>
+    <h1>Sorting Algorithm 2</h1>
+    <p>
+        The second algorithm is a little more complex, but if we follow it carefully, it's logic will become clear. Again, use one suit from a deck of cards, shuffled (or any other sortable items, really).
+    </p>
+    <pre>
+        <code>
+    Create a collection of lines by putting each person in a line.
+    Do the following while there is more than one line:
+        Create a new line called newLine
+        Call the next two lines in the collection line1 and line2
+        firstInLine1 = first item in line1
+        firstInLine2 = first item in line2
+        Do the following until one of line1 and line2 is empty:
+            If firstInLine1 comes before firstInLine2:
+                add firstInLine1 to newLine
+                firstInLine1 = next item from line1
+            else:
+                add firstInLine2 to newLine
+                firstInLine2 = next item in line2
+        When one of line1 and line2 is empty,
+            Add all of the items from the other line to the end of newLine
+        Add newLine to the collection of lines
+        </code>
+    </pre>
+    <p>
+        By the end, you will have one sorted line of cards.
+    </p>
+</body>
+</html>
