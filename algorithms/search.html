@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- searh .html                                      8/25/09 -->
+<!-- This visualization tool was written to accompany         -->
+<!-- A Balanced Introduction to Computer Science, 3rd ed. by  -->
+<!-- David Reed (davereed@creighton.edu), Prentice Hall, 2010 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Binary Search</title>
+
+    <script type="text/javascript">
+        STATES = [null,
+            "AK", "AL", "AZ", "CA", "CO", "FL",
+            "HI", "IA", "KS", "LA", "MA", "MD",
+            "MN", "MT", "NC", "ND", "NE", "NH",
+            "NM", "NV", "NY", "OH", "OK", "SC",
+            "SD", "TN", "TX", "UT", "VA", "VT", "WY"
+        ];
+
+        function Init() {
+            document.getElementById("leftBox").value = 1;
+            document.getElementById("rightBox").value = STATES.length - 1;
+            document.getElementById("midBox").value =
+                Math.floor((parseFloat(document.getElementById("leftBox").value) +
+                    parseFloat(document.getElementById("rightBox").value)) / 2);
+            document.getElementById("checksBox").value = 0;
+            document.getElementById("outputDiv").innerHTML = "";
+            document.getElementById("foundBox").value = "false";
+            Draw();
+        }
+
+        function Draw() {
+            var i, left, right, output;
+
+            left = parseFloat(document.getElementById("leftBox").value);
+            right = parseFloat(document.getElementById("rightBox").value);
+            mid = parseFloat(document.getElementById("midBox").value);
+
+
+            output = '<table border=1 style="margin-left:auto;margin-right:auto"><tr>';
+            for (i = 1; i < STATES.length; i++) {
+                if (left <= i && i <= right) {
+                    output += '<td><font size=-1>' + STATES[i] + '</font></td>';
+                } else {
+                    output += '<td><font size=-1><strike>' + STATES[i] + '</strike></font></td>';
+                }
+            }
+            output += '</tr><tr>'
+            for (i = 1; i < STATES.length; i++) {
+                output += '<td align="center" style="border-style:none"><font size=-2>' + i + '</font></td>';
+            }
+            output += '</tr><tr>';
+            for (i = 1; i < STATES.length; i++) {
+                output += '<td align="center" style="border-style:none">';
+                if (i == left) {
+                    output += '<font color="blue" size=-2>left<br></font>';
+                }
+                if (i == mid) {
+                    output += '<font color="red" size=-2>mid<br></font>';
+                }
+                if (i == right) {
+                    output += '<font color="blue" size=-2>right<br></font>';
+                }
+                output += '</td>';
+            }
+            output += '</tr></table></center>';
+
+            document.getElementById('tableDiv').innerHTML = output;
+        }
+
+        function BinSearch(state)
+        // Assumes: state is the state name to be searched for
+        // Results: performs the next step in the search, displaying results in outputDiv
+        {
+            var left, right;
+
+            state = document.getElementById('stateBox').value;
+            checks = parseFloat(document.getElementById('checksBox').value);
+            left = parseFloat(document.getElementById('leftBox').value);
+            right = parseFloat(document.getElementById('rightBox').value);
+            mid = parseFloat(document.getElementById('midBox').value);
+
+            if (left <= right) {
+                checks = checks + 1;
+                document.getElementById("checksBox").value = checks;
+                document.getElementById('outputDiv').innerHTML +=
+                    checks + ': Checking index ' + mid + ' = ' + STATES[mid] + '<br>';
+
+                if (STATES[mid] == state) {
+                    document.getElementById('outputDiv').innerHTML += '&nbsp;&nbsp;&nbsp; FOUND IT!<br>';
+                    document.getElementById('foundBox').value = 'true';
+                } else if (STATES[mid] > state) {
+                    right = mid - 1;
+                    document.getElementById('rightBox').value = right;
+                    document.getElementById('midBox').value = Math.floor((left + right) / 2);
+                    document.getElementById('outputDiv').innerHTML += '&nbsp;&nbsp;&nbsp; That value is too big... adjusting right limit.<br>';
+                } else {
+                    left = mid + 1;
+                    document.getElementById("leftBox").value = left;
+                    document.getElementById("midBox").value = Math.floor((left + right) / 2);
+                    document.getElementById('outputDiv').innerHTML += '&nbsp;&nbsp;&nbsp; That value is too small... adjusting left limit.<br>';
+                }
+                if (left > right) {
+                    document.getElementById('outputDiv').innerHTML += '&nbsp;&nbsp;&nbsp; The range is exhausted: ITEM NOT FOUND.<br>';
+                }
+                setTimeout('Draw()', 500);
+            }
+
+        }
+    </script>
+</head>
+
+<body onload="Init();">
+    <div style="text-align:center">
+        <h3>Binary Search Algorithm</h3>
+        <h3>Visualization Tool to Accompany <br />
+      <a href="http://balance3e.com">A Balanced Introduction to Computer
+    Science, 3rd ed.</a><br />David Reed, Prentice Hall, &copy; 2010.</h3>
+    </div>
+
+    <div id="tableDiv">
+    </div>
+    <hr>
+
+    <p>State abbreviation to be found:
+        <input type="text" id="stateBox" size="4" value="" onchange="Init();">
+
+
+        <input type="button" value="Perform Next Check" onclick="if (document.getElementById('foundBox').value == 'false') {BinSearch();}">
+        <input type="button" value="Clear" onclick="Init();">
+
+        <div id="outputDiv"></div>
+
+        <input type="hidden" id="leftBox" size="2" value="0">
+        <input type="hidden" id="midBox" size="2" value="0">
+        <input type="hidden" id="rightBox" size="2" value="0">
+        <input type="hidden" id="checksBox" value="0">
+        <input type="hidden" id="foundBox" value="false">
+    </p>
+</body>
+
+</html>
