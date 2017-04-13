@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--  loan.html
+
+         Calculates monthly payments on a loan.
+
+   -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loan Calculator</title>
+
+    <script type="text/javascript">
+        // *********************************************************
+        // *** The definition of your Payment function goes here.***
+        // *** Delete these four lines. ****************************
+        // *********************************************************
+
+        function CalculatePayment() {
+            var prin = document.getElementById('prinBox').value;
+            prin = parseFloat(prin);
+            var apr = document.getElementById('aprBox').value;
+            apr = parseFloat(apr);
+            var months = document.getElementById('monthsBox').value;
+            months = parseInt(months);
+            //  Un-comment the rest of the JavaScript statements in this function
+            //  after you have defined a Payment function.
+            //  Do not make any other changes to this function.
+            /* Remove this entire line
+	           var moPayment = Payment(prin, apr, months);
+               moPayment = moPayment.toFixed(2);
+               var interest = months * moPayment - prin;
+               interest = interest.toFixed(2);
+               document.getElementById('outputDiv').innerHTML =
+	               '<p>A loan of $' + prin + ' with an interest rate of ' +
+	                apr +'% will require a monthly payment of $' + moPayment
+		            + ' in order to pay the loan off in ' + months +
+		            ' months. Over the lifetime of the loan a total of $' +
+		            interest + ' will be paid in interest.</p>'
+	        Remove this entire line */
+        }
+
+        <!--  DO NOT CHANGE ANYTHING BELOW THIS POINT!  -->
+    </script>
+</head>
+
+<body>
+
+    <p>
+        Loan Principal: $
+        <input type="text" id="prinBox" size="10" value="0" />
+        <br />
+    </p>
+    <p>
+        APR:
+        <input type="text" id="aprBox" size="4" value="" />%
+        <br />
+    </p>
+    <p>
+        Months:
+        <input type="text" id="monthsBox" size="4" value="" />
+        <br />
+    </p>
+    <hr />
+    <p>
+        <input type="button" value="Calculate Payment" onclick="CalculatePayment();" />
+    </p>
+    <hr />
+    <div id="outputDiv"></div>
+
+
+</body>
+
+</html>
