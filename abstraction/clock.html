@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- clock.html                                           Dave Reed -->
+<!-- This page displays the current time in a division when loaded. -->
+<!-- ============================================================== -->
+
+<html>
+ <head>
+   <title>Current Time</title>
+   <script type="text/javascript" src="http://balance3e.com/time.js">
+   </script>
+   <script type="text/javascript">
+     function showClock()
+     // Assumes: the time.js library has been loaded
+     // Results: displays the current time in outputDiv
+     {
+       var current;
+       
+       current = CurrentTime();       
+       document.getElementById('outputDiv').innerHTML = 
+         'The current time is: ' + current;
+     }
+   </script>
+ </head>
+ 
+ <body onload="showClock();">
+   <h2>Current Time</h2>
+   <div id="outputDiv"></div>
+ </body>
+</html> 
