@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+   <!--  weather.html
+   
+         Calculates dew points and wind chills.
+         
+   -->
+ 
+   <head>
+
+      <title>If you don't like the weather, wait a minute.  It will
+      change.</title>
+
+<!--  DO NOT CHANGE ANYTHING BELOW THIS POINT!  -->
+
+      <script type="text/javascript">
+
+
+         function updateDewPoint()
+         {
+            var temp = document.getElementById('tempBox').value;
+            temp = parseFloat(temp);
+            var humidity = document.getElementById('humidityBox').value;
+            humidity = parseFloat(humidity);
+           
+            var dewPoint = calculateDewPoint(temp, humidity);
+               dewPoint = dewPoint.toFixed(0);
+               document.getElementById('outputDiv').innerHTML = 
+	       '<p>With a temperature of ' + temp + 
+	       ' and a relative humidity of ' + humidity +
+	       ' the  dew point is ' + dewPoint + 
+		'.</p>'
+         }
+
+         function updateWindChill()
+         {
+            var temp = document.getElementById('tempBox').value;
+            temp = parseFloat(temp);
+            var windSpeed = document.getElementById('windBox').value;
+            windSpeed = parseFloat(windSpeed);
+           
+            var windChill = calculateWindChill(temp, windSpeed);
+               windChill = windChill.toFixed(0);
+               document.getElementById('outputDiv').innerHTML = 
+	       '<p>With a temperature of ' + temp + 
+	       ' and a wind speed of ' + windSpeed +
+	       ' the  wind chill is ' + windChill + 
+		'.</p>'
+         }
+
+
+      </script>
+
+   </head>
+
+   <body>
+
+       <p>
+          Temperature (degrees Fahrenheit):
+          <input type="text" id="tempBox" size="10" value="0" />
+          <br />
+       </p>
+       <p>
+          Humidity: 
+          <input type="text" id="humidityBox" size="4" value="" />%
+          <br />
+       </p>
+       <p>
+          Wind speed (mph): 
+          <input type="text" id="windBox" size="4" value="" />
+          <br />
+       </p>
+       <hr />
+       <p>
+          <input type="button" 
+                 value="Calculate Dew Point" 
+                 onclick="updateDewPoint();" />
+	  <br />
+          <input type="button" 
+                 value="Calculate Wind Chill" 
+                 onclick="updateWindChill();" />
+       </p>
+       <hr />
+       <div id="outputDiv"></div>
+
+      
+   </body>
+
+</html>
