@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,22 @@
     <title>Number Representation</title>
     <link href="../css/style.css" type="text/css" rel="stylesheet" />
 </head>
+
 <body>
     <h1>Number Representation</h1>
     <section>
         <h2>Introduction</h2>
         <p>
-            Digital computing is wholly dependent on the fact that a wire either has current or does not. It is either on or off. It has binary state. Thus, everything in a computer has a binary representation. Indeed, in the early days of computing there were many attempts to build computers that could handle multiple voltage levels, thereby creating a non-binary system. In the end, binary was just easier. And now, we have ways of <strong>representating</strong> just about any kind of data you can think of, from numbers and text to images, sound, and video. Let's look at some of the basic ways in which numbers can be represented.
+            Digital computing is wholly dependent on the fact that a wire either has current or does not. It is either on or off. It has binary state. Thus, everything in a computer has a binary representation. Indeed, in the early days of computing there were many
+            attempts to build computers that could handle multiple voltage levels, thereby creating a non-binary system. In the end, binary was just easier. And now, we have ways of <strong>representating</strong> just about any kind of data
+            you can think of, from numbers and text to images, sound, and video. Let's look at some of the basic ways in which numbers can be represented.
         </p>
     </section>
     <section>
         <h2>Binary</h2>
         <p>
-            The decimal system is familiar to us all. It's based on the number 10, and there are 10 numerals used to represent any number imaginable. Any time you reach a power of 10, you simply add another digit. For example, the number 125 in base 10 can be broken down in decimal notation like this:
+            The decimal system is familiar to us all. It's based on the number 10, and there are 10 numerals used to represent any number imaginable. Any time you reach a power of 10, you simply add another digit. For example, the number 125 in base 10 can be broken
+            down in decimal notation like this:
         </p>
         <p style="align:center;">
             125<sub>10</sub> = 1*100 + 2*10 + 5*1 = 1*10<sup>2</sup> + 2*10<sup>1</sup> + 5*10<sup>0</sup>
@@ -27,40 +32,51 @@
             Notice, that we can represent each place value as an integer from 0 to 9 multiplied by some power of 10.
         </p>
         <p>
-            In binary, we can actually represent numbers in much the same way, as integers from 0 to 1 multiplied by powers of 2. How does this work in practice? Well, we know the powers of 10 pretty easily. They are, 1, 10, 100, 1000, 10000, etc. The powers of 2 might also be fairly familiar, especially if you've spent much time with computers:
+            In binary, we can actually represent numbers in much the same way, as integers from 0 to 1 multiplied by powers of 2. How does this work in practice? Well, we know the powers of 10 pretty easily. They are, 1, 10, 100, 1000, 10000, etc. The powers of 2
+            might also be fairly familiar, especially if you've spent much time with computers:
         </p>
 
         <table>
-          <tr>
-            <th>Power of 2</th> <th>Value</th>
-          </tr>
-          <tr>
-            <td>2<sup>0</sup></td> <td>1</td>
-          </tr>
-          <tr>
-            <td>2<sup>1</sup></td><td>2</td>
-          </tr>
-          <tr>
-            <td>2<sup>2</sup></td><td>4</td>
-          </tr>
-          <tr>
-            <td>2<sup>3</sup></td><td>8</td>
-          </tr>
-          <tr>
-            <td>2<sup>4</sup></td><td>16</td>
-          </tr>
-          <tr>
-            <td>2<sup>5</sup></td><td>32</td>
-          </tr>
-          <tr>
-            <td>2<sup>6</sup></td><td>64</td>
-          </tr>
-          <tr>
-            <td>2<sup>7</sup></td><td>128</td>
-          </tr>
-          <tr>
-            <td>2<sup>8</sup></td><td>256</td>
-          </tr>
+            <tr>
+                <th>Power of 2</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>2<sup>0</sup></td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2<sup>1</sup></td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>2<sup>2</sup></td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>2<sup>3</sup></td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>2<sup>4</sup></td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>2<sup>5</sup></td>
+                <td>32</td>
+            </tr>
+            <tr>
+                <td>2<sup>6</sup></td>
+                <td>64</td>
+            </tr>
+            <tr>
+                <td>2<sup>7</sup></td>
+                <td>128</td>
+            </tr>
+            <tr>
+                <td>2<sup>8</sup></td>
+                <td>256</td>
+            </tr>
         </table>
 
         <p>
@@ -73,12 +89,13 @@
             To represent it in base 2, binary, is a little trickier:
         </p>
         <p style="align:center">
-            86<sub>10</sub> = 1*2<sup>6</sup> + 0*2<sup>5</sup> + 1*2<sup>4</sup> + 0*2<sup>3</sup> + 1*2<sup>2</sup> + 1*2<sup>1</sup> + 0*2<sup>0</sup><br />
-            or<br/>
-            86<sub>10</sub> = 1010110<sub>2</sub>
+            86<sub>10</sub> = 1*2<sup>6</sup> + 0*2<sup>5</sup> + 1*2<sup>4</sup> + 0*2<sup>3</sup> + 1*2<sup>2</sup> + 1*2<sup>1</sup> + 0*2<sup>0</sup><br /> or
+            <br/> 86
+            <sub>10</sub> = 1010110<sub>2</sub>
         </p>
         <p>
-            <strong>Note:</strong> subscript 2 represents a binary number. Each binary digit is called a bit. And 1010110 is represented by 7 bits. Any positive integer can be be broken down in this way. The tricky part is just remembering all of your powers of 2.
+            <strong>Note:</strong> subscript 2 represents a binary number. Each binary digit is called a bit. And 1010110 is represented by 7 bits. Any positive integer can be be broken down in this way. The tricky part is just remembering all of your
+            powers of 2.
         </p>
 
     </section>
@@ -94,18 +111,21 @@
             <li>1+1-0, carry a 1</li>
         </ul>
         <p>
-            Let's look at a simple 4-bit addition. Adding 5<sub>10</sub> to 9<sub>10</sub>. First, we convert to binary. 5<sub>10</sub> = 0101<sub>2</sub> and 9<sub>10</sub> = 1001. We set up the problem exaclty as we would in binary arithmetic and then add following our rules, from right to left.
+            Let's look at a simple 4-bit addition. Adding 5<sub>10</sub> to 9<sub>10</sub>. First, we convert to binary. 5<sub>10</sub> = 0101<sub>2</sub> and 9<sub>10</sub> = 1001. We set up the problem exaclty as we would in binary arithmetic and then
+            add following our rules, from right to left.
         </p>
         <p>
             <pre>
                1   <em>carries</em>
              0101
-            <u>+1001</u>
+            +1001
+            ======
              1110
             </pre>
         </p>
         <p>
-            Pay special attention to the carry in the "2s" column. Now, this is all well and good, of course, and it is definitely how computers do these sorts of computations. However, can you see any problems with this way of dealing with numbers? Remember, ones and zeroes are <em>all</em> a digital computer has to work with...
+            Pay special attention to the carry in the "2s" column. Now, this is all well and good, of course, and it is definitely how computers do these sorts of computations. However, can you see any problems with this way of dealing with numbers? Remember, ones
+            and zeroes are <em>all</em> a digital computer has to work with...
         </p>
     </section>
     <section>
@@ -114,65 +134,206 @@
             A computer can <em>only</em> represent numbers as ones and zeroes. Thus, we need some method of representing negative numbers using <em>only</em> ones and zeros.
         </p>
         <p>
-            The first, and simplest method of negating a number is a system called "ones' complement". The method is quite simple. To represent a negative number, all you need to do is flip all of the bits in the number. So, the 8-bit number 0101 1100 becomes 1010 0011. The only problem is, the two numbers look remarkably similar. So, how do we signify that the second number is a negative? We reserve the most significant bit as our sign. It if it's a 0, the number is positive. If it's a 1, then the number is negative. In this way, we can only use the last 7 bits of the number to represent an 8-bit number. The leftmost bit is the "sign" of the number. To see this in action, examine the following table closely (shamlessly ripped off from <a href="https://en.wikipedia.org/wiki/Ones%27_complement">Wikipedia</a>)
+            The first, and simplest method of negating a number is a system called "ones' complement". The method is quite simple. To represent a negative number, all you need to do is flip all of the bits in the number. So, the 8-bit number 0101 1100 becomes 1010
+            0011. The only problem is, the two numbers look remarkably similar. So, how do we signify that the second number is a negative? We reserve the most significant bit as our sign. It if it's a 0, the number is positive. If it's a 1, then the
+            number is negative. In this way, we can only use the last 7 bits of the number to represent an 8-bit number. The leftmost bit is the "sign" of the number. To see this in action, examine the following table closely (shamlessly ripped off from
+            <a href="https://en.wikipedia.org/wiki/Ones%27_complement">Wikipedia</a>)
         </p>
         <table>
-  <tr>
-    <th>Bits</th>
-    <th>Unisgned Value</th>
-    <th>One's Complement</th>
-  </tr>
-  <tr>
-    <td>0111 1111</td>
-    <td>127</td>
-    <td>127</td>
-  </tr>
-  <tr>
-    <td>0111 1110</td>
-    <td>126</td>
-    <td>126</td>
-  </tr>
-  <tr>
-    <td>0000 0010</td>
-    <td>2</td>
-    <td>2</td>
-  </tr>
-  <tr>
-    <td>0000 0001</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
-  <tr>
-    <td>0000 0000</td>
-    <td>0</td>
-    <td>0</td>
-  </tr>
-  <tr>
-    <td>1111 1111</td>
-    <td>255</td>
-    <td>-0</td>
-  </tr>
-  <tr>
-    <td>1111 1110</td>
-    <td>254</td>
-    <td>-1</td>
-  </tr>
-  <tr>
-    <td>1111 1101</td>
-    <td>253</td>
-    <td>-1</td>
-  </tr>
-  <tr>
-    <td>1000 0001</td>
-    <td>129</td>
-    <td>-126</td>
-  </tr>
-  <tr>
-    <td>1000 0000</td>
-    <td>128</td>
-    <td>-127</td>
-  </tr>
-</table>
+            <tr>
+                <th>Bits</th>
+                <th>Unisgned Value</th>
+                <th>One's Complement</th>
+            </tr>
+            <tr>
+                <td>0111 1111</td>
+                <td>127</td>
+                <td>127</td>
+            </tr>
+            <tr>
+                <td>0111 1110</td>
+                <td>126</td>
+                <td>126</td>
+            </tr>
+            <tr>
+                <td>0000 0010</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>0000 0001</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>0000 0000</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>1111 1111</td>
+                <td>255</td>
+                <td>-0</td>
+            </tr>
+            <tr>
+                <td>1111 1110</td>
+                <td>254</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>1111 1101</td>
+                <td>253</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>1000 0001</td>
+                <td>129</td>
+                <td>-126</td>
+            </tr>
+            <tr>
+                <td>1000 0000</td>
+                <td>128</td>
+                <td>-127</td>
+            </tr>
+        </table>
+        <p>
+            There are, as it turns out, some very distinct problems with ones' complement. The biggest and most patently absurd is the fact that it has two values to represent 0. In an 8-bit system, both 0000 0000 and 1111 1111 represent 0. You have, in essence,
+            a 0 and a -0, which is the primary reason that ones' complement has never seen widespread use. Add to this, that ones' complement creates some strange behavior when you carry a 1 past the leftmost bit or when you subtract and need to borrow
+            from a bit past the leftmost bit. The operation can be done, but it does not look pretty and, in very practical terms, requires extra circuitry at the transistor level in a computer's CPU. So, what's the solution?
+        </p>
     </section>
+    <section>
+        <h2>Best of Both Worlds: Twos' Complement</h2>
+        <p>
+            In twos' complement, to represent a negative number, we flip <strong>all</strong> of the bits <strong>up to</strong> the most significant bit of our actual number. As we shall see, this eliminates the -0 problem, and it actually makes adding
+            and subtracting easier. Circuits representing this operation are smaller and more efficient. Here's what the numbers look like in a simple 3-bit system:
+        </p>
+        <table>
+            <tr>
+                <th>Bits</th>
+                <th>Unisgned Value</th>
+                <th>Two's Complement</th>
+            </tr>
+            <tr>
+                <td>011</td>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>010</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>000</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>7</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>110</td>
+                <td>6</td>
+                <td>-2</td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>5</td>
+                <td>-3</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>4</td>
+                <td>-4</td>
+            </tr>
+        </table>
+        <p>
+            And in our 8-bit system, it looks like this:
+        </p>
+        <table>
+            <tr>
+                <th>Bits</th>
+                <th>Unisgned Value</th>
+                <th>Two's Complement</th>
+            </tr>
+            <tr>
+                <td>0111 1111</td>
+                <td>127</td>
+                <td>127</td>
+            </tr>
+            <tr>
+                <td>0111 1110</td>
+                <td>126</td>
+                <td>126</td>
+            </tr>
+            <tr>
+                <td>0000 0010</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>0000 0001</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>0000 0000</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>1111 1111</td>
+                <td>255</td>
+                <td>-1</td>
+            </tr>
+            <tr>
+                <td>1111 1110</td>
+                <td>254</td>
+                <td>-2</td>
+            </tr>
+            <tr>
+                <td>1000 0001</td>
+                <td>129</td>
+                <td>-127</td>
+            </tr>
+            <tr>
+                <td>1000 0000</td>
+                <td>128</td>
+                <td>-128</td>
+            </tr>
+        </table>
+    </section>
+    <p>
+        What's cool about two's complement is that it makes arithmetic operations super simple. You just add the two binary numbers as if they were any binary numbers. For example, let's add 15 and -5 in twos complement:
+    </p>
+    <pre>
+         11111 111   (carry)
+          0000 1111  (15)
+        + 1111 1011  (-5)
+        =================
+          0000 1010  (10)
+    </pre>
+    <p>
+        It works <em>exactly</em> like simple binary addition, however, it does rely on our 8-bit limit. Wehn we are using exclusively 8-bit representations, we can safely ignore the last carried 1 and end with the arithmetically correct result.
+    </p>
+    <h2>Binary Numbers and the Overflow Problem</h2>
+    <p>
+        Let's say we are programming for a computer with a modern 64-bit operating system. This means that the highest number we can represent in a two's complement integer system (ignoring, for the moment, things like floating point numbers) is 2<sup>64</sup>/2. If we try to go higher than this number, we will get either an overflow error <em>or</em> if we are not doing our error checking correctly, it will simply wrap around to a negative number. This is definitely <em>not</em> something that we want to happen. All sorts of mathematical weirdness can result from overflow errors. In fact, there is a fairly famous overflow bug in the <a href="https://kotaku.com/why-gandhi-is-such-an-asshole-in-civilization-1653818245">original Civilization game</a>.
+    </p>
+    <p>
+        How do computers get around this problem? Well, quite simply, <em>they don't.</em> And indeed, this is not only the simplest solution, it ends up just not being a problem. Before we look into why this is the case, a caveat: there <em>are</em> actually ways to represent integers with more than 64 bits using a modern CPU, however, they are usually tackled in software and not in hardware and thus, are not relevant here.
+    </p>
+    <p>
+        Now, think of what it means to be a 64-bit system. This means that we represent our numbers with 64 bits. 64-bits can represent 2<sup>64</sup> different values. That's around 1.8x10<sup>19</sup> different values or 18 quintillion. In unsigned integers, you can represent the numbers between 0 and 18,446,744,073,709,551,615. In two's complement, you can represent all the numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807. These are positively massive ranges of numbers and, when it all comes down to it, we don't worry about this problem for the simple reason that we just don't have to. It's very rarely an issue. And in the <em>incredibly</em> rare situations in which it <em>is</em> and issue, we just deal with it in software. And that's that.
+    </p>
 </body>
+
 </html>
