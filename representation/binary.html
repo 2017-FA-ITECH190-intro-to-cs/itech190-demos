@@ -64,9 +64,55 @@
         </table>
 
         <p>
-            
+            Thus, a number like 86 will be easily represented in base 10 like this:
+        </p>
+        <p style="align:center">
+            86<sub>10</sub> = 8*10<sup>1</sup> + 6*10<sup>0</sup>
+        </p>
+        <p>
+            To represent it in base 2, binary, is a little trickier:
+        </p>
+        <p style="align:center">
+            86<sub>10</sub> = 1*2<sup>6</sup> + 0*2<sup>5</sup> + 1*2<sup>4</sup> + 0*2<sup>3</sup> + 1*2<sup>2</sup> + 1*2<sup>1</sup> + 0*2<sup>0</sup><br />
+            or<br/>
+            86<sub>10</sub> = 1010110<sub>2</sub>
+        </p>
+        <p>
+            <strong>Note:</strong> subscript 2 represents a binary number. Each binary digit is called a bit. And 1010110 is represented by 7 bits. Any positive integer can be be broken down in this way. The tricky part is just remembering all of your powers of 2.
         </p>
 
+    </section>
+    <section>
+        <h2>Arithmetic: Addition in binary</h2>
+        <p>
+            Arithmetic in binary is really quite simple. You simply set up a problem as you would a decimal arithmetic problem and then follow three rules:
+        </p>
+        <ul>
+            0+0=0, no carry
+            1+0=1, no carry
+            0+1=1, no carry
+            1+1-0, carry a 1
+        </ul>
+        <p>
+            Let's look at a simple 4-bit addition. Adding 5<sub>10</sub> to 9<sub>10</sub>. First, we convert to binary. 5<sub>10</sub> = 0101<sub>2</sub> and 9<sub>10</sub> = 1001. We set up the problem exaclty as we would in binary arithmetic and then add following our rules, from right to left.
+        </p>
+        <p>
+            <pre>
+   1   <em>carries</em>
+ 0101
+<u>+1001</u>
+ 1110
+            </pre>
+        </p>
+    </section>
+    <section>
+        <h2>Negative Numbers and Ones' Complement</h2>
+        <p>
+            A computer can <em>only</em> represent numbers as ones and zeroes. Thus, we need some method of representing negative numbers using <em>only</em> ones and zeros.
+        </p>
+        <p>
+            The first, and simplest method of negating a number is a system called "ones' complement"
+        </p>
     </section>
 </body>
 </html>
