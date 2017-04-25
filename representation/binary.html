@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Number Representation</title>
-    <link href="../css/sytle.css" type="text/css" rel="stylesheet" />
+    <link href="../css/style.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
     <h1>Number Representation</h1>
@@ -88,21 +88,24 @@
             Arithmetic in binary is really quite simple. You simply set up a problem as you would a decimal arithmetic problem and then follow three rules:
         </p>
         <ul>
-            0+0=0, no carry
-            1+0=1, no carry
-            0+1=1, no carry
-            1+1-0, carry a 1
+            <li>0+0=0, no carry</li>
+            <li>1+0=1, no carry</li>
+            <li>0+1=1, no carry</li>
+            <li>1+1-0, carry a 1</li>
         </ul>
         <p>
             Let's look at a simple 4-bit addition. Adding 5<sub>10</sub> to 9<sub>10</sub>. First, we convert to binary. 5<sub>10</sub> = 0101<sub>2</sub> and 9<sub>10</sub> = 1001. We set up the problem exaclty as we would in binary arithmetic and then add following our rules, from right to left.
         </p>
         <p>
             <pre>
-   1   <em>carries</em>
- 0101
-<u>+1001</u>
- 1110
+               1   <em>carries</em>
+             0101
+            <u>+1001</u>
+             1110
             </pre>
+        </p>
+        <p>
+            Pay special attention to the carry in the "2s" column. Now, this is all well and good, of course, and it is definitely how computers do these sorts of computations. However, can you see any problems with this way of dealing with numbers? Remember, ones and zeroes are <em>all</em> a digital computer has to work with...
         </p>
     </section>
     <section>
@@ -111,8 +114,65 @@
             A computer can <em>only</em> represent numbers as ones and zeroes. Thus, we need some method of representing negative numbers using <em>only</em> ones and zeros.
         </p>
         <p>
-            The first, and simplest method of negating a number is a system called "ones' complement"
+            The first, and simplest method of negating a number is a system called "ones' complement". The method is quite simple. To represent a negative number, all you need to do is flip all of the bits in the number. So, the 8-bit number 0101 1100 becomes 1010 0011. The only problem is, the two numbers look remarkably similar. So, how do we signify that the second number is a negative? We reserve the most significant bit as our sign. It if it's a 0, the number is positive. If it's a 1, then the number is negative. In this way, we can only use the last 7 bits of the number to represent an 8-bit number. The leftmost bit is the "sign" of the number. To see this in action, examine the following table closely (shamlessly ripped off from <a href="https://en.wikipedia.org/wiki/Ones%27_complement">Wikipedia</a>)
         </p>
+        <table>
+  <tr>
+    <th>Bits</th>
+    <th>Unisgned Value</th>
+    <th>One's Complement</th>
+  </tr>
+  <tr>
+    <td>0111 1111</td>
+    <td>127</td>
+    <td>127</td>
+  </tr>
+  <tr>
+    <td>0111 1110</td>
+    <td>126</td>
+    <td>126</td>
+  </tr>
+  <tr>
+    <td>0000 0010</td>
+    <td>2</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>0000 0001</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>0000 0000</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>1111 1111</td>
+    <td>255</td>
+    <td>-0</td>
+  </tr>
+  <tr>
+    <td>1111 1110</td>
+    <td>254</td>
+    <td>-1</td>
+  </tr>
+  <tr>
+    <td>1111 1101</td>
+    <td>253</td>
+    <td>-1</td>
+  </tr>
+  <tr>
+    <td>1000 0001</td>
+    <td>129</td>
+    <td>-126</td>
+  </tr>
+  <tr>
+    <td>1000 0000</td>
+    <td>128</td>
+    <td>-127</td>
+  </tr>
+</table>
     </section>
 </body>
 </html>
