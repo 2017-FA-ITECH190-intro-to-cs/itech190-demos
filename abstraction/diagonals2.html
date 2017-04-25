@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagonals With Library</title>
+    <script src="diagonalsLib.js"></script>
+</head>
+<body>
+    <h2>Diagonals Calculator</h2>
+
+    <p>
+        Enter the number of sides in a convex polygon:
+        <input type="text" id="sidesBox" size="10" value="">
+    </p>
+    <input type="button" value="Calculate Number of Diagonals" onclick="var sides = document.getElementById('sidesBox').value;
+	  document.getElementById('outputDiv').innerHTML =
+	  '<p>A convex polygon with ' + sides +
+	  ' sides has ' + numberOfDiagonals(parseFloat(sides))
+	  + ' diagonals.</p>';">
+    <hr>
+    <div id="outputDiv"></div>
+</body>
+</html>
