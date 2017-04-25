@@ -205,8 +205,7 @@
     <section>
         <h2>Best of Both Worlds: Twos' Complement</h2>
         <p>
-            In twos' complement, to represent a negative number, we flip <strong>all</strong> of the bits <strong>up to</strong> the most significant bit of our actual number. As we shall see, this eliminates the -0 problem, and it actually makes adding
-            and subtracting easier. Circuits representing this operation are smaller and more efficient. Here's what the numbers look like in a simple 3-bit system:
+            In two's complement, we do the same thing as one's complement. To represent a negative number, we simply flip all of the bits. However, to eliminate the -0 problem, we also add 1. As it turns out, this works very well mathematically. Mathematical operations are far cleaner, circuits representing these operation are smaller and more efficient. In fact, the fundamental operations of addition, subtraction, and multiplication are <strong>identical</strong> to the operations for unsigned numbers. As with one's complement, we also reserve the leftmost bit to be the "sign" bit. Here's what the numbers look like in a simple 3-bit system:
         </p>
         <table>
             <tr>
