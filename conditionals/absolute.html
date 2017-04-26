@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if demo - Absolute Value</title>
+    <script>
+        function calculateAbs()
+        // Assumes: absBox contains a number)
+        // Results: displays the absolute value of the number int he outputDiv
+        {
+            var num, val;
+            var outString = "The absolute value is: ";
+
+            num = parseFloat(document.getElementById('absBox').value);
+
+            //Verify that input is a number
+            if (isNaN(num)) {
+                alert("Not a number!");
+                return;
+            }
+
+            //Determine if input is positive or negative
+            if (num >= 0) {
+                val = num;
+            } else {
+                val = -num;
+            }
+
+            // output the results
+            document.getElementById('outputDiv').innerHTML = outString + val;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Calculate Absolute Value</h1>
+    <p>
+        Enter a value: <input type="text" id="absBox" size="6" value="" />
+    </p>
+    <input type="button" value="Enter" onclick="calculateAbs()" />
+    <div id="outputDiv"></div>
+</body>
+
+</html>

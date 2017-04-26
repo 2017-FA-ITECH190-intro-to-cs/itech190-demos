@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+        ifDemo.html
+
+        Copyright 2011 Marty J. Wolf <mjwolf@fawn>
+
+        This program is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation; either version 2 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program; if not, write to the Free Software
+        Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+        MA 02110-1301, USA.
+
+
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if-demonstration - Diagonals</title>
+
+    <script type="text/javascript">
+        function calculateArea() {
+            //assumes a text box with the id amountBox and a div with the id outputDiv
+            var length = parseFloat(document.getElementById('lengthBox').value);
+            if (isNaN(length) || length < 0) {
+                alert("You made a mistake!\nPlease enter a positive number.");
+                return;
+            }
+
+            var squareArea = length * length;
+            var radius = (0.5 * length);
+            var circleArea = radius * radius * Math.PI;
+            var areaOfInterest = squareArea - circleArea;
+
+            document.getElementById('outputDiv').innerHTML =
+                'The area of the white region is ' +
+                areaOfInterest;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>If demonstration</h2>
+
+    <p>
+        <img src="Diagram1.png">
+        <br /> Enter the length of one side of a square:
+        <input type="text" id="lengthBox" size="10" value="">
+
+    </p>
+    <input type="button" value="Calculate Area" onclick="calculateArea();">
+    <hr>
+    <div id="outputDiv"></div>
+
+</body>
+
+</html>
