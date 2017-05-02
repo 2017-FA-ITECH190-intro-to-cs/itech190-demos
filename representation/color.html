@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color my World</title>
+
+    <script type="text/javascript">
+        function changeColor(newColor) {
+            document.body.style.background = newColor;
+        }
+    </script>
+</head>
+
+<body>
+
+    Please enter a hexadecimal color (e.g. #ff00ff)<br />
+    <input type="text" id="color" value="" size="7" /> <br /> When done, <br />
+    <input type="button" value="Push this button" onclick="changeColor(document.getElementById('color').value)" />
+    <br />
+
+</body>
+
+</html>
