@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function load_js(code){
+            var s = document.getElementById('run')[0];
+            s.parentNode.removeChild(s);
+
+            var head = element.getElementsByTagName('head');
+            var script = document.createElement('script');
+            script.id = "run";
+            script.innerHTML = code;
+            head.append(script);
+        }
+        function run_code()
+        {
+            var c = document.getElementById("to_run").value;
+            load_js(c);
+        }
+
+    </script>
+    <script id="run">
+    </script>
+</head>
+<body>
+    Write some code in the box and hit <input type="button" value="Run" onclick="run_code();" />
+    <textarea id="to_run" rows="20" cols="50">
+        alert("Hello World!");
+    </textarea>
+
+    
+</body>
+</html>
