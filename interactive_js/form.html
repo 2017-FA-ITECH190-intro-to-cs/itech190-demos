@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>For Demonstration</title>
+	<title>Form Demonstration</title>
 </head>
 <body>
 	<h2>Event Scheduler</h2>
@@ -11,16 +11,22 @@
 		What do you want to do:
 		<input type="text" id="activityBox" size="20" value="birthday" /> <br />
 		Enter a date:
-		<input type="date" id="dateBox" size="20" value="March 10" /> <br />
+		<input type="date" id="dateBox" size="20" value="" /> <br />
 	</p>
 	<input type="button" value="Click to schedule"
-		onclick="document.getElementById('output').innerHTML=
-			'<p>Hello, ' + document.getElementById('nameBox').value +
-			',</p> <p>I am really excited to attend your ' +
-			document.getElementById('activityBox').value + 
-			' on ' + document.getElementById('dateBox').value +
-			'. It sounds like fun!</p>' + 
-			'<p style=\'text-align:right\'>Regards,<br>Eric</p>';">
+		onclick="
+            userName = document.getElementById('nameBox').value;
+            userActivity = document.getElementById('activityBox').value;
+            userDate = document.getElementById('dateBox').value;
+
+            document.getElementById('output').innerHTML=
+                '<p>Hello, ' + userName +
+			    ',</p> <p>I am really excited to attend your ' +
+			    userActivity + ' on ' + userDate +
+                '. It sounds like fun!</p><br />' + 
+                '<p style=\'text-align:right\'>Regards,<br>Eric</p>';"/>
+
+
 	<div id="output"></div>
 </body>
 </html>
