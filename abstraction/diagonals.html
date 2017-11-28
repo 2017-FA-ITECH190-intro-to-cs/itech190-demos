@@ -34,6 +34,18 @@
             totalDiagonals = 0.5 * numberOfSides * (numberOfSides - 3);
             return totalDiagonals;
         }
+        
+        function doWork()
+        {
+            var sides = parseFloat(document.getElementById('sidesBox').value);
+            
+            var totalDiagonals = numberOfDiagonals(sides);
+            
+    	    document.getElementById('outputDiv').innerHTML =
+        	  '<p>A convex polygon with ' + sides +
+        	  ' sides has ' + totalDiagonals
+        	  + ' diagonals.</p>';
+        }
     </script>
 </head>
 
@@ -44,11 +56,7 @@
         Enter the number of sides in a convex polygon:
         <input type="text" id="sidesBox" size="10" value="">
     </p>
-    <input type="button" value="Calculate Number of Diagonals" onclick="var sides = document.getElementById('sidesBox').value;
-	  document.getElementById('outputDiv').innerHTML =
-	  '<p>A convex polygon with ' + sides +
-	  ' sides has ' + numberOfDiagonals(parseFloat(sides))
-	  + ' diagonals.</p>';">
+    <input type="button" value="Calculate Number of Diagonals" onclick="doWork();">
     <hr>
     <div id="outputDiv"></div>
 </body>
