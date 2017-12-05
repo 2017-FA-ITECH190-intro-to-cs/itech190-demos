@@ -1,0 +1,441 @@
+<html>
+<!-- logic.html                                       8/24/09 -->
+<!-- This visualization tool was written to accompany         -->
+<!-- A Balanced Introduction to Computer Science, 23r ed. by           -->
+<!-- David Reed (davereed@creighton.edu), Prentice Hall, 2010 -->
+
+  <head>
+    <title>Logic Design</title>
+    <script type="text/javascript">
+      function replaceIMG(imgEle, imgFile)
+      {
+         imgEle.src = imgFile;
+         disabled = false;
+      }
+      
+      function NOTgate() {
+        if (document.getElementById('NOTinput1').options[document.getElementById('NOTinput1').options.selectedIndex].value=='5V') {
+          document.getElementById('NOToutput').value='0';
+        }
+        else {
+          document.getElementById('NOToutput').value='1';
+        }
+      }
+      
+      function ORgate() {
+        if (document.getElementById('ORinput1').options[document.getElementById('ORinput1').options.selectedIndex].value=='5V' ||
+            document.getElementById('ORinput2').options[document.getElementById('ORinput2').options.selectedIndex].value=='5V') {
+          document.getElementById('ORoutput').value='1';
+        }
+        else {
+          document.getElementById('ORoutput').value='0';
+        }      
+      }
+      
+      function ANDgate() {
+        if (document.getElementById('ANDinput1').options[document.getElementById('ANDinput1').options.selectedIndex].value=='5V' &&
+            document.getElementById('ANDinput2').options[document.getElementById('ANDinput2').options.selectedIndex].value=='5V') {
+          document.getElementById('ANDoutput').value='1';
+        }
+        else {
+          document.getElementById('ANDoutput').value='0';
+        }      
+      }
+      
+      function NOTcircuit() {
+        if (document.getElementById('NOTCIRCinput1').options[document.getElementById('NOTCIRCinput1').options.selectedIndex].value=='5V') {
+          document.getElementById('NOTCIRCoutput').value='0V';
+          document.getElementById('NOTCIRCimg').src='CMOS-not1.gif';
+        }
+        else {
+          document.getElementById('NOTCIRCoutput').value='5V';
+          document.getElementById('NOTCIRCimg').src='CMOS-not0.gif';
+        }
+      }
+      
+      function ORcircuit() {
+        in1 = document.getElementById('ORCIRCinput1').options[document.getElementById('ORCIRCinput1').options.selectedIndex].value;
+        in2 = document.getElementById('ORCIRCinput2').options[document.getElementById('ORCIRCinput2').options.selectedIndex].value;
+        if (in1 == '0V' && in2 == '0V') {
+          document.getElementById('ORCIRCoutput').value='0V';
+          document.getElementById('ORCIRCimg').src='CMOS-or00.gif';
+        }
+        else if (in1 == '0V' && in2 == '5V') {
+          document.getElementById('ORCIRCoutput').value='5V';
+          document.getElementById('ORCIRCimg').src='CMOS-or01.gif';
+        }
+        else if (in1 == '5V' && in2 == '0V') {
+          document.getElementById('ORCIRCoutput').value='5V';
+          document.getElementById('ORCIRCimg').src='CMOS-or10.gif';
+        }
+        else if (in1 == '5V' && in2 == '5V') {
+          document.getElementById('ORCIRCoutput').value='5V';
+          document.getElementById('ORCIRCimg').src='CMOS-or11.gif';
+        }
+      }
+      
+      function ANDcircuit() {
+        in1 = document.getElementById('ANDCIRCinput1').options[document.getElementById('ANDCIRCinput1').options.selectedIndex].value;
+        in2 = document.getElementById('ANDCIRCinput2').options[document.getElementById('ANDCIRCinput2').options.selectedIndex].value;
+        if (in1 == '0V' && in2 == '0V') {
+          document.getElementById('ANDCIRCoutput').value='0V';
+          document.getElementById('ANDCIRCimg').src='CMOS-and00.gif';
+        }
+        else if (in1 == '0V' && in2 == '5V') {
+          document.getElementById('ANDCIRCoutput').value='0V';
+          document.getElementById('ANDCIRCimg').src='CMOS-and01.gif';
+        }
+        else if (in1 == '5V' && in2 == '0V') {
+          document.getElementById('ANDCIRCoutput').value='0V';
+          document.getElementById('ANDCIRCimg').src='CMOS-and10.gif';
+        }
+        else if (in1 == '5V' && in2 == '5V') {
+           document.getElementById('ANDCIRCoutput').value='5V';
+            document.getElementById('ANDCIRCimg').src='CMOS-and11.gif';
+         }
+      }
+      
+      function HALFadder() {
+        in1 = document.getElementById('HALFinput1').options[document.getElementById('HALFinput1').options.selectedIndex].value;
+        in2 = document.getElementById('HALFinput2').options[document.getElementById('HALFinput2').options.selectedIndex].value;
+        if (in1 == '0' && in2 == '0') {
+          document.getElementById('HALFcarry').value='0';
+          document.getElementById('HALFsum').value='0';
+          document.getElementById('HALFimg').src='halfadder00.gif';
+        }
+        else if (in1 == '0' && in2 == '1') {
+          document.getElementById('HALFcarry').value='0';
+          document.getElementById('HALFsum').value='1';
+          document.getElementById('HALFimg').src='halfadder01.gif';
+        }
+        else if (in1 == '1' && in2 == '0') {
+          document.getElementById('HALFcarry').value='0';
+          document.getElementById('HALFsum').value='1';
+          document.getElementById('HALFimg').src='halfadder10.gif';
+        }
+        else if (in1 == '1' && in2 == '1') {
+          document.getElementById('HALFcarry').value='1';
+          document.getElementById('HALFsum').value='0';
+          document.getElementById('HALFimg').src='halfadder11.gif';
+        }
+      }
+      
+      function FULLadder() {
+        in1 = document.getElementById('FULLinput1').options[document.getElementById('FULLinput1').options.selectedIndex].value;
+        in2 = document.getElementById('FULLinput2').options[document.getElementById('FULLinput2').options.selectedIndex].value;
+        in3 = document.getElementById('FULLinput3').options[document.getElementById('FULLinput3').options.selectedIndex].value;
+        c = 0;
+        s = parseFloat(in1) + parseFloat(in2) + parseFloat(in3);
+        if (s > 1) {
+          c = 1;
+          s = s - 2;
+        }
+        document.getElementById('FULLcarry').value = c;
+        document.getElementById('FULLsum').value= s;
+        document.getElementById('FULLimg').src='fulladder'+in1+in2+in3+'.gif';
+      }
+      
+      function FOURadder() {
+        a1 = document.getElementById('ADDERa1').options[document.getElementById('ADDERa1').options.selectedIndex].value;
+        a2 = document.getElementById('ADDERa2').options[document.getElementById('ADDERa2').options.selectedIndex].value;
+        a3 = document.getElementById('ADDERa3').options[document.getElementById('ADDERa3').options.selectedIndex].value;
+        a4 = document.getElementById('ADDERa4').options[document.getElementById('ADDERa4').options.selectedIndex].value;  
+        b1 = document.getElementById('ADDERb1').options[document.getElementById('ADDERb1').options.selectedIndex].value;
+        b2 = document.getElementById('ADDERb2').options[document.getElementById('ADDERb2').options.selectedIndex].value;
+        b3 = document.getElementById('ADDERb3').options[document.getElementById('ADDERb3').options.selectedIndex].value;
+        b4 = document.getElementById('ADDERb4').options[document.getElementById('ADDERb4').options.selectedIndex].value;  
+        
+        c = 0;
+        s = parseFloat(a4) + parseFloat(b4) + c;
+        if (s > 1) {
+          c = 1;
+          s = s - 2;
+        }
+        document.getElementById('ADDERout5').value = s;
+        s = parseFloat(a3) + parseFloat(b3) + c;
+        c = 0;
+        if (s > 1) {
+          c = 1;
+          s = s - 2;
+        }
+        document.getElementById('ADDERout4').value = s;   
+        s = parseFloat(a2) + parseFloat(b2) + c;
+        c = 0;
+        if (s > 1) {
+          c = 1;
+          s = s - 2;
+        }
+        document.getElementById('ADDERout3').value = s;
+        s = parseFloat(a1) + parseFloat(b1) + c;
+        c = 0;
+        if (s > 1) {
+          c = 1;
+          s = s - 2;
+        }
+        document.getElementById('ADDERout2').value = s;  
+        document.getElementById('ADDERout1').value = c;        
+      }
+      
+      function FFset() {
+        if (disAbled == false) {
+          disAbled=true;
+          document.getElementById('FFoutput1').value=1;
+          document.getElementById('FFimg').src='flip10.gif';
+          setTimeout('document.getElementById("FFimg").src="flip001.gif"; disAbled=false;', 1000);
+        }
+      }
+      
+      function FFreset() {
+        if (disAbled == false) {
+          disAbled=true;
+          document.getElementById('FFoutput1').value=0;
+          document.getElementById('FFimg').src='flip01.gif';
+          setTimeout('document.getElementById("FFimg").src="flip000.gif"; disAbled=false;', 1000);
+        }
+      }
+    </script>
+  </head>
+
+  <body onLoad="disAbled=false;">
+   <div style="text-align:center">
+  <h3>Logic Design </h3>
+  <h3>Visualization Tool to Accompany <br />
+  <a href="http://balance3e.com">A Balanced Introduction to Computer 
+Science, 3rd ed.</a><br />David Reed, Prentice Hall, &copy; 2010.</h3>
+</div>
+ 
+
+  <hr />
+  
+  <h3>Transistors</h3>
+
+  <table border=1 cellspacing=5 cellpadding=10>
+  <th>NMOS Transistor 
+  <th>PMOS Transistor
+  <tr><td><table>
+          <tr><td><select id="Nstates" 
+                          onchange="document.getElementById('Npic').src=
+                                     this.options[this.options.selectedIndex].value;">
+                    <option value="NMOS-open.gif" selected> 0V
+                    <option value="NMOS-closed.gif">5V
+                  </select>
+              <td><img id="Npic" src="NMOS-open.gif">
+          </table>
+      <td><table>
+          <tr><td><select id="Pstates" 
+                          onchange="document.getElementById('Ppic').src=
+                                    this.options[this.options.selectedIndex].value;">
+                    <option value="PMOS-closed.gif" selected> 0V
+                    <option value="PMOS-open.gif">5V
+                  </select>
+              <td><img id="Ppic" src="PMOS-closed.gif">
+          </table>
+  </table>
+   
+  <p><br /><br />
+   <p><h3>Gates</h3>
+
+   <table border=1 cellspacing=5 cellpadding=10>
+   <tr><th>NOT gate</th> <th>OR gate</th> <th>AND gate</th>
+   <tr>
+    <td align="center">
+       <table>
+       <tr><td><select id="NOTinput1" onchange="NOTgate();">
+                  <option value="0V" selected> 0
+                  <option value="5V"> 1
+                </select>
+               <td><img src="NOTgate.gif" alt="NOT gate">
+              <td><input type="text" id="NOToutput" size=3 value="1" onfocus="blur();"> 
+       </table>    
+      
+       <td align="center">
+       <table>
+       <tr><td><select id="ORinput1" onchange="ORgate();">
+                  <option value="0V" selected> 0
+                  <option value="5V"> 1
+                </select>
+               <br />
+               <select id="ORinput2" onchange="ORgate();">
+                  <option value="0V" selected> 0
+                  <option value="5V"> 1
+                </select>
+              <td><img src="ORgate.gif" alt="OR gate">
+              <td><input type="text" id="ORoutput" size=3 value="0" onfocus="blur();">
+       </table>    
+   
+       <td align="center">
+       <table>
+       <tr><td><select id="ANDinput1" onchange="ANDgate();">
+                  <option value="0V" selected> 0
+                  <option value="5V"> 1
+                </select>
+               <br />
+               <select id="ANDinput2" onchange="ANDgate();">
+                  <option value="0V" selected> 0
+                  <option value="5V"> 1
+                </select>
+              <td><img src="ANDgate.gif" alt="AND gate">
+              <td><input type="text" id="ANDoutput" size="3" value="0" onfocus="blur();">
+       </table>  
+       
+   <tr>
+       <td>                         
+       <table>
+       <tr><td><select id="NOTCIRCinput1" onchange="NOTcircuit();">
+                  <option value="0V" selected> 0V
+                  <option value="5V"> 5V
+                </select>
+               <td><img id="NOTCIRCimg" src="CMOS-not0.gif" alt="NOT circuitry">
+              <td><input type="text" id="NOTCIRCoutput" size=3 value="5V" onfocus="blur();"> 
+       </table>    
+       </form>  
+       
+       <td>
+       <table>
+       <tr><td><select id="ORCIRCinput1" onchange="ORcircuit();">
+                  <option value="0V" selected> 0V
+                  <option value="5V"> 5V
+                </select>
+               <br />
+               <select id="ORCIRCinput2" onchange="ORcircuit();">                 
+                  <option value="0V" selected> 0V
+                  <option value="5V"> 5V
+                </select>
+              <td><img id="ORCIRCimg" src="CMOS-or00.gif" alt="OR circuitry">
+              <td><input type="text" id="ORCIRCoutput" size=3 value="0V" onfocus="blur();">
+       </table>       
+
+      <td>
+       <table>
+       <tr><td><select id="ANDCIRCinput1" onchange="ANDcircuit();">
+                  <option value="0V" selected> 0V
+                  <option value="5V"> 5V
+                </select>
+               <br />
+               <select id="ANDCIRCinput2" onchange="ANDcircuit();">                  
+                  <option value="0V" selected> 0V
+                  <option value="5V"> 5V
+                </select>
+              <td><img id="ANDCIRCimg" src="CMOS-and00.gif" alt="AND circuitry">
+              <td><input type="text" id="ANDCIRCoutput" size=3 value="0V" onfocus="blur();">
+       </table>       
+     </table>
+  
+   <p><br /><br />
+   <p><h3>Building an adder</h3>
+
+   <table border=1 cellspacing=5 cellpadding=10>
+   <tr><th>Half Adder
+       <td>
+       <table>
+       <tr><td><select id="HALFinput1" onchange="HALFadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+               <br />
+               <select id="HALFinput2" onchange="HALFadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+              <td><img id="HALFimg" src="halfadder00.gif" alt="half adder">
+              <td><input type="text" id="HALFcarry" size=1 value="0" onFocus="blur();"> carry
+                  <br />
+                  <input type="text" id="HALFsum" size=1 value="0" onFocus="blur();"> sum
+       </table>    
+       
+       <tr><th>Full Adder
+       <td><table>
+       <tr><td>
+           <select id="FULLinput1"
+                       onchange="FULLadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+               <br />
+               <select id="FULLinput2" onchange="FULLadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+                <br />
+                <select id="FULLinput3" onchange="FULLadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+              <td><img id="FULLimg" src="fulladder000.gif" alt="full adder" />
+              <td><input type="text" id="FULLcarry" size=1 value="0" onFocus="blur();"> carry
+                  <br />
+                  <input type="text" id="FULLsum" size=1 value="0" onFocus="blur();"> sum
+       </table>       
+    
+       <tr><th>4-bit Adder
+       <td><table>
+       <tr><td valign="top">
+               <select id="ADDERa1" onchange="FOURadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+               <br />
+               <select id="ADDERa2" onchange="FOURadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+                <br>
+                <select id="ADDERa3" onchange="FOURadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+               <br />
+               <select id="ADDERa4" onchange="FOURadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+               
+               <p style="height:0.75in">&nbsp;</p>
+               
+               <select id="ADDERb1" onchange="FOURadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+               <br />
+               <select id="ADDERb2" onchange="FOURadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+                <br>
+                <select id="ADDERb3" onchange="FOURadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+               <br />
+               <select id="ADDERb4" onchange="FOURadder();">
+                  <option value="0" selected> 0
+                  <option value="1"> 1
+                </select>
+              <td><img id="ADDERimg" src="adder.gif" alt="adder" />
+              <td><br><input type="text" id="ADDERout1" value=0 size=1><br> 
+                  <input type="text" id="ADDERout2" value=0 size=1><br> 
+                  <input type="text" id="ADDERout3" value=0 size=1><br> 
+                  <input type="text" id="ADDERout4" value=0 size=1><br>
+                  <input type="text" id="ADDERout5" value=0 size=1>
+       </table>      
+     </table>     
+
+ <p><br /><br />
+   <p><h3>Storing a bit</h3>
+
+   <table border=1 cellspacing=5 cellpadding=10>
+   <tr><th>Flip-Flop
+       <td>
+       <table>
+       <tr><td valign="top" align="right"><br />
+           <input type="button" value="Set bit" onclick="FFset();">
+      <br /><br /><br />
+      <input type="button" value="Reset bit" onclick="FFreset();">
+         <br />
+         <td><img id="FFimg" src="flip000.gif" alt="Flip-Flop">
+         <td valign="top"><br /><input type="text" id="FFoutput1" size=1 value="0" onfocus="blur();"> <br />
+       </table>    
+   </table>
+  </body>
+</html>
+
